@@ -1,7 +1,7 @@
 const dishes = require('./dishes');
-const orders = require('./users');
+const users = require('./users');
 
 module.exports = {
     dishes,
-    orders
+    users
 }

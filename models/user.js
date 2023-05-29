@@ -38,7 +38,7 @@ const joiSchemaUser = Joi.object({
     email: Joi.string().required(),
     phone: Joi.number().required(),
     adress: Joi.string().required(),
-    status: Joi.string().valid(...statusValue).required(),
+    status: Joi.string().valid(...statusValue),
     food: Joi.array().items({
         dishe_name: Joi.string().required(),
         price: Joi.number().required(),
@@ -47,7 +47,7 @@ const joiSchemaUser = Joi.object({
     })
 });
 
-const User = model("dishe", userSchema);
+const User = model("user", userSchema);
 
 module.exports = {
     User,
