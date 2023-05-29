@@ -47,7 +47,7 @@ const joiSchemaUser = Joi.object({
     })
 });
 
-const User = model("user", userSchema);
+const User = model("order", userSchema);
 
 module.exports = {
     User,
