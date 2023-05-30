@@ -1,8 +1,8 @@
-const { User } = require('../../models');
+const { Order } = require('../../models');
 
 const getByEmail = async (req, res) => {
-    const { email, phone } = req.body;
-    const result = await User.find({ email, phone });
+    const { email } = req.body;
+    const result = await Order.find({ email });
     res.json(result);
 };
 

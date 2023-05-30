@@ -1,8 +1,31 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
-const { disheSchema } = require("./dishe");
+// const { disheSchema } = require("./dishe");
 
-const statusValue = ["finished", "inprocess", "rejected"]
+const statusValue = ["finished", "inprocess", "rejected"];
+
+const disheSchema = Schema({
+    _id: {
+            type: String,
+            required: true
+        },
+    dishe_name: {
+            type: String,
+            required: true
+        },
+    price: {
+            type: Number,
+            required: true
+        },
+    restaurant: {
+            type: String,
+            required: true
+        },
+    image: {
+            type: String,
+            default: null
+        }
+}, { versionKey: false, timestamps: false })
 
 const userSchema = Schema({
     name: {
@@ -40,6 +63,7 @@ const joiSchemaUser = Joi.object({
     adress: Joi.string().required(),
     status: Joi.string().valid(...statusValue),
     food: Joi.array().items({
+        _id: Joi.string().required(),
         dishe_name: Joi.string().required(),
         price: Joi.number().required(),
         restaurant: Joi.string().required(),
@@ -47,9 +71,9 @@ const joiSchemaUser = Joi.object({
     })
 });
 
-const User = model("order", userSchema);
+const Order = model("order", userSchema);
 
 module.exports = {
-    User,
+    Order,
     joiSchemaUser
 };

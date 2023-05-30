@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.post('/', validation(joiSchemaUser), ctrlWrapper(users.addOrder));
 
-router.get('/', ctrlWrapper(users.getByEmail));
+router.post('/history', ctrlWrapper(users.getByEmail));
+
+router.get('/allorders', ctrlWrapper(users.getAll));
 
 module.exports = router;

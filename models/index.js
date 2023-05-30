@@ -1,8 +1,8 @@
-const { User, joiSchemaUser } = require('./user');
+const { Order, joiSchemaUser } = require('./user');
 const { Dishe, joiSchemaDish } = require('./dishe');
 
 module.exports = {
-    User,
+    Order,
     joiSchemaUser,
     Dishe,
     joiSchemaDish
