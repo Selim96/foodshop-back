@@ -24,7 +24,11 @@ const disheSchema = Schema({
     image: {
             type: String,
             default: null
-        }
+    },
+    count: {
+        type: Number,
+        default: 1
+    }
 }, { versionKey: false, timestamps: false })
 
 const userSchema = Schema({
@@ -67,7 +71,8 @@ const joiSchemaUser = Joi.object({
         dishe_name: Joi.string().required(),
         price: Joi.number().required(),
         restaurant: Joi.string().required(),
-        image: Joi.string().default(null)
+        image: Joi.string().default(null),
+        count: Joi.number().default(1)
     })
 });
 
